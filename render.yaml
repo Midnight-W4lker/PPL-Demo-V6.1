@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ppl-enterprise-intelligence
+    runtime: docker
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # set this manually in the Render dashboard (Secret) — never commit it
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
+      - key: RERANK_BACKEND
+        value: local          # switch to "groq" only if you hit the free-tier RAM ceiling

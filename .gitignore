@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.vscode/
+.idea/
+*.log
+
+# IMPORTANT: unlike the local/desktop version, data/raw/*.pdf and data/index/* are
+# INTENTIONALLY tracked here. Render's free tier has no persistent disk, so both the source
+# PDFs (for the page-image viewer) and the prebuilt FAISS/BM25 index (so the service doesn't
+# need to re-ingest on every deploy) must ship inside the git repo itself.
+
+# models/ is NOT tracked — fetched at build time by app/download_models.py instead, so we don't
+# commit ~150-200MB of third-party binary weights into git.
+models/*
+!models/.gitkeep
